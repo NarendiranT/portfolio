@@ -1,6 +1,17 @@
 node_modules/
 dist/
 
+.env.local
+*.local
+
+.venv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+media/
+staticfiles/
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
