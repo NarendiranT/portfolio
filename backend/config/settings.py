@@ -11,6 +11,13 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-dev-key")
 DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
+def get_env_list(name: str, default: str = "") -> list[str]:
+    return [
+        value.strip()
+        for value in os.getenv(name, default).split(",")
+        if value.strip()
+    ]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -83,9 +90,15 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOWED_ORIGINS = [
-    os.getenv("CORS_ORIGIN", "http://localhost:5173"),
-]
+CORS_ALLOWED_ORIGINS = get_env_list(
+    "CORS_ORIGIN",
+    "http://localhost:5173",
+)
+
+CSRF_TRUSTED_ORIGINS = get_env_list(
+    "CORS_ORIGIN",
+    "http://localhost:5173",
+)
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
