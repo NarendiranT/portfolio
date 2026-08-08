@@ -22,7 +22,7 @@ function isActive(path: string) {
   <header class="sticky top-0 z-50 border-b border-slate-800 bg-surface/95 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
       <RouterLink to="/" class="text-lg font-bold text-white hover:text-accent transition-colors">
-        Portfolio
+        Narendiran Portfolio
       </RouterLink>
 
       <ul class="hidden md:flex items-center gap-8">
